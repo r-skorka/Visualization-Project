@@ -21,6 +21,8 @@ from visualcrossing import VisualCrossing
 import getkeys
 from geticons import getIcons
 from animation import getAnimation
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import cartopy.crs as ccrs
@@ -34,7 +36,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 file_content = None
 
-with open('dane.txt', 'r') as file:
+with open('dane.txt', 'r', encoding='utf-8') as file:
     data = ast.literal_eval(file.read())
 
 
@@ -63,7 +65,7 @@ def page2():
     if file_content is None:
         df = pd.DataFrame(data)
         file_content = df
-        
+
     df_new = ''
     selected_columns = ["conditions", "icon", "precip", "preciptype", "snow", "cloudcover", "datetimeEpoch",
                         "sunriseEpoch", "sunsetEpoch", "wave_direction", "winddir"]
@@ -292,7 +294,7 @@ def upload():
                     record = {'index': i, **record}
                     data_list[i] = record
 
-                with open('dane.txt', 'w') as f1:
+                with open('dane.txt', 'w', encoding='utf-8') as f1:
                     f1.write(str(data_list))
 
             return redirect(url_for('index'))
