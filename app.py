@@ -59,6 +59,11 @@ def page1():
 @app.route('/page2')
 def page2():
     global file_content
+    global data
+    if file_content is None:
+        df = pd.DataFrame(data)
+        file_content = df
+        
     df_new = ''
     selected_columns = ["conditions", "icon", "precip", "preciptype", "snow", "cloudcover", "datetimeEpoch",
                         "sunriseEpoch", "sunsetEpoch", "wave_direction", "winddir"]
