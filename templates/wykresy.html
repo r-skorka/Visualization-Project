@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div style="text-align: center;">
+  <h1>Wpływ temperatury i zachmurzenia na indeks UV</h1>
+  <iframe src="{{ url_for('static', filename='uvindex_temperature_cloudcover.html') }}" width="1000" height="600"></iframe>
+  <h1>Czas trwania dnia i nocy</h1>
+  <iframe src="{{ url_for('static', filename='day_night_duration.html') }}" width="1000" height="600"></iframe>
+  <h1>Opady i wilgotność w zależności od pochmurności</h1>
+  <iframe src="{{ url_for('static', filename='cloudcover_humidity_precipitation.html') }}" width="1000" height="600"></iframe>
+  <h1>Temperatura odczuwalna w zależności od zachmurzenia i prędkości wiatru (wykres 3D)</h1>
+  <iframe src="{{ url_for('static', filename='feelslike_cloudcover_windspeed.html') }}" width="1000" height="600"></iframe>
+  <h1>Róża Wiatrów</h1>
+  <img src="{{ url_for('static', filename='wind_rose.png') }}" alt="Róża Wiatrów">
+  <h1>Róża Kierunku Fal</h1>
+  <img src="{{ url_for('static', filename='wave_rose.png') }}" alt="Róża Kierunku Fal">
+  <h1>Widoczność w zależności od godziny</h1>
+  <iframe src="{{ url_for('static', filename='visibility_pie.html') }}" width="1000" height="600"></iframe>
+  <h1>Wpływ Prędkości Wiatru na Wysokość Fal</h1>
+  <iframe src="{{ url_for('static', filename='wind_wave_scatter.html') }}" width="1000" height="600"></iframe>
+  <h1>Mapa ciepła temperatury</h1>
+  <iframe src="{{ url_for('static', filename='temperature_map.html') }}" width="1000" height="600"></iframe>
+  <h1>Godziny wschodu i zachodu słońca</h1>
+  <iframe src="{{ url_for('static', filename='sunrise_sunset.html') }}" width="1000" height="600"></iframe>
+  <h1>Rozkład okresu fali w różnych lokalizacjach</h1>
+  <iframe src="{{ url_for('static', filename='wave_period_map.html') }}" width="1000" height="600"></iframe>
+  <h1>Temperatura w zależności od prędkości wiatru</h1>
+  <iframe src="{{ url_for('static', filename='wind_speed_temperature.html') }}" width="1000" height="600"></iframe>
+</div>
+{% endblock %}
